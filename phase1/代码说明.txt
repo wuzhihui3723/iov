@@ -1,0 +1,18 @@
+30服务器原始数据地址/sdb/20201116/ ,按车辆分文件结果/sdb/output/2020_1001-2000.csv/, 数据排序和过滤结果 /sdb/output1/2020_1001-2000.csv/,行程切分与统计结果 /sdb/trip/data/2020_1001-2000.csv/ 和/sdb/trip/stat/2020_1001-2000.csv/
+31服务器原始数据地址/sdb/test/,其他结果同30
+32服务器地址同30服务器
+30服务器存放 501-9000文件，31服务器存放1-500,32服务器存放9001-10000
+
+/tmp 上传
+/sdb/code/
+nohup python python.py >nohup.log 2>&1 &
+
+1.seperatefile.py  #将原始混杂数据提取到以vin为文件名的各自文件中,结果保存/sdb/output/2020_1001-2000.csv/
+
+2.pandasread.py #数据探查过程中的交互代码记录
+
+3.preprocess.py #将车辆的原始数据去除不需要的字段同时做初步的过滤结果为10个字段,结果保存/sdb/output1/2020_1001-2000.csv/
+
+4.trip_cut.py #行程切分与统计结果计算, 结果保存 切分结果原始数据/sdb/trip/data/和统计结果数据/sdb/trip/stat/
+
+5.features.py 计算风险因子结果
